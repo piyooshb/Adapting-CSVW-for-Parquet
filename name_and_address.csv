@@ -1,0 +1,3 @@
+name,streetAddress,addressLocality,addressRegion,postalCode,email,telephone
+Alice,123 Main Street,Phoenix,Arizona,85004,alice@example.org,+1-555-555-5555
+Bob,123 East Street,Scottsdale,Arizona,85002,bob@example.org,+1-333-333-3333
