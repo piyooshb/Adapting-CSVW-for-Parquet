@@ -1,0 +1,111 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/csvw#",
+    {
+      "@language": "en"
+    }
+  ],
+  "tables": [
+    {
+      "url": "name_and_address.parquet",
+      "notes": "CSVW for sample.parquet",
+      "tableSchema": {
+        "columns": [
+          {
+            "name": "name",
+            "titles": "Party Name",
+            "dc:description": "Name of a person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "propertyUrl": "https://schema.org/name"
+          },
+          {
+            "name": "streetAddress",
+            "titles": "Street Address",
+            "dc:description": "Street Address of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_address{_row}",
+            "propertyUrl": "https://schema.org/streetAddress"
+          },
+          {
+            "name": "addressLocality",
+            "titles": "Address Locality",
+            "dc:description": "Address Locality of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_address{_row}",
+            "propertyUrl": "https://schema.org/addressLocality"
+          },
+          {
+            "name": "addressRegion",
+            "titles": "Address Region",
+            "dc:description": "Address Region of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_address{_row}",
+            "propertyUrl": "https://schema.org/addressRegion"
+          },
+          {
+            "name": "postalCode",
+            "titles": "Postal Code",
+            "dc:description": "Postal Code of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_address{_row}",
+            "propertyUrl": "https://schema.org/postalCode"
+          },
+          {
+            "name": "email",
+            "titles": "Postal Code",
+            "dc:description": "Postal Code of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_contactInfo{_row}",
+            "propertyUrl": "https://schema.org/email"
+          },
+          {
+            "name": "telephone",
+            "titles": "Postal Code",
+            "dc:description": "Postal Code of a Person",
+            "required": true,
+            "datatype": "http://www.w3.org/2001/XMLSchema#string",
+            "aboutUrl": "_:bnode_contactInfo{_row}",
+            "propertyUrl": "https://schema.org/telephone"
+          },
+          {
+            "virtual": true,
+            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "propertyUrl": "https://vocabulary.chase/customer/hasAddress",
+            "valueUrl": "_:bnode_address{_row}"
+          },
+          {
+            "virtual": true,
+            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "propertyUrl": "https://vocabulary.chase/customer/hasContact",
+            "valueUrl": "_:bnode_contactInfo{_row}"
+          },
+          {
+            "virtual": true,
+            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://schema.org/Person"
+          },
+          {
+            "virtual": true,
+            "aboutUrl": "_:bnode_address{_row}",
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://schema.org/PostalAddress"
+          },
+          {
+            "virtual": true,
+            "aboutUrl": "_:bnode_contactInfo{_row}",
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://schema.org/PostalAddress"
+          }
+        ]
+      }
+    }
+  ]
+}
