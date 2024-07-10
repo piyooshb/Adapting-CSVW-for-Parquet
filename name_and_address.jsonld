@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "customer": "https://vocabulary.chase/customer/",
+        "data": "https://data.chase/",
+        "sdo": "https://schema.org/"
+    },
+    "@graph": [
+        {
+            "@id": "data:Person/name/Alice",
+            "@type": "sdo:Person",
+            "sdo:name": "Alice",
+            "customer:hasAddress": {
+                "@type": "sdo:PostalAddress",
+                "sdo:addressLocality": "Phoenix",
+                "sdo:addressRegion": "Arizona",
+                "sdo:postalCode": "85004",
+                "sdo:streetAddress": "123 Main Street"
+            },
+            "customer:hasContact": {
+                "@type": "sdo:PostalAddress",
+                "sdo:email": "alice@example.org",
+                "sdo:telephone": "+1-555-555-5555"
+            }
+        },
+        {
+            "@id": "data:Person/name/Bob",
+            "@type": "sdo:Person",
+            "sdo:name": "Bob",
+            "customer:hasAddress": {
+                "@type": "sdo:PostalAddress",
+                "sdo:addressLocality": "Scottsdale",
+                "sdo:addressRegion": "Arizona",
+                "sdo:postalCode": "85002",
+                "sdo:streetAddress": "123 East Street"
+            },
+            "customer:hasContact": {
+                "@type": "sdo:PostalAddress",
+                "sdo:email": "bob@example.org",
+                "sdo:telephone": "+1-333-333-3333"
+            }
+        }
+    ]
+}
