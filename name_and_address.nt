@@ -1,0 +1,24 @@
+<https://data.chase/Person/name/Alice> <https://schema.org/name> "Alice"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_0> <https://schema.org/streetAddress> "123 Main Street"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_0> <https://schema.org/addressLocality> "Phoenix"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_0> <https://schema.org/addressRegion> "Arizona"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_0> <https://schema.org/postalCode> "85004"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_contactInfo_0> <https://schema.org/email> "alice@example.org"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_contactInfo_0> <https://schema.org/telephone> "+1-555-555-5555"^^<http://www.w3.org/2001/XMLSchema#string> .
+<https://data.chase/Person/name/Alice> <https://vocabulary.chase/customer/hasAddress> <_:bnode_address_0> .
+<https://data.chase/Person/name/Alice> <https://vocabulary.chase/customer/hasContact> <_:bnode_contactInfo_0> .
+<https://data.chase/Person/name/Alice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+<_:bnode_address_0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PostalAddress> .
+<_:bnode_contactInfo_0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PostalAddress> .
+<https://data.chase/Person/name/Bob> <https://schema.org/name> "Bob"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_1> <https://schema.org/streetAddress> "123 East Street"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_1> <https://schema.org/addressLocality> "Scottsdale"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_1> <https://schema.org/addressRegion> "Arizona"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_address_1> <https://schema.org/postalCode> "85002"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_contactInfo_1> <https://schema.org/email> "bob@example.org"^^<http://www.w3.org/2001/XMLSchema#string> .
+<_:bnode_contactInfo_1> <https://schema.org/telephone> "+1-333-333-3333"^^<http://www.w3.org/2001/XMLSchema#string> .
+<https://data.chase/Person/name/Bob> <https://vocabulary.chase/customer/hasAddress> <_:bnode_address_1> .
+<https://data.chase/Person/name/Bob> <https://vocabulary.chase/customer/hasContact> <_:bnode_contactInfo_1> .
+<https://data.chase/Person/name/Bob> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+<_:bnode_address_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PostalAddress> .
+<_:bnode_contactInfo_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PostalAddress> .
