@@ -1,7 +1,7 @@
 {
     "@context": {
-        "customer": "https://vocabulary.chase/customer/",
-        "data": "https://data.chase/",
+        "customer": "https://vocabulary.org/customer/",
+        "data": "https://data.org/",
         "sdo": "https://schema.org/"
     },
     "@graph": [
