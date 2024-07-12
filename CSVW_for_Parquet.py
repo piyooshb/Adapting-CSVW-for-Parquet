@@ -3,23 +3,16 @@ from pyld import jsonld
 import pandas as pd
 import json
 import re
-import os
-
-
-parquet_fnm = 'name_and_address.parquet'
-csvw_fnm = 'csvw_name_and_address.json'
-nt_fnm = 'pername_and_address.nt'
-jsonld_fnm = 'name_and_address.jsonld'
-curr_path = os.path.dirname(os.path.abspath(__file__))
 
 """
     Read CSVW & Parquet data file  
 """
 
-parquet_file = '{}\{}'.format(curr_path, parquet_fnm)
+parquet_file = r'C:\JPMC\DEV\code_repo\Test\src\local\csvw_on_parquet\input\name_and_address.parquet'
 df = pd.read_parquet(parquet_file, engine='pyarrow')
+# print(df)
 
-csvw_input = '{}\{}'.format(curr_path, csvw_fnm)
+csvw_input = 'C:\JPMC\DEV\code_repo\Test\src\local\csvw_on_parquet\input\csvw_name_and_address.json'
 csvw_data = json.load(open(csvw_input))
 
 """
@@ -64,9 +57,10 @@ for index, row in df.iterrows():
                 triple = triple.replace(replace_from_str, replace_to_str)
         ntriples_data.append(triple)
 
-nt_output = '{}\{}'.format(curr_path, nt_fnm)
+nt_output = r'C:\JPMC\DEV\code_repo\Test\src\local\csvw_on_parquet\output\name_and_address.nt'
 with open(nt_output, "w") as outfile:
     outfile.write("\n".join(ntriples_data))
+
 
 """
     Serialize n-triples to JSON-LD and frame JSON-LD
@@ -74,14 +68,14 @@ with open(nt_output, "w") as outfile:
 
 context = {
     "sdo": "https://schema.org/",
-    "customer": "https://vocabulary.chase/customer/",
-    "data": "https://data.chase/"
+    "customer": "https://vocabulary.org/customer/",
+    "data": "https://data.org/"
 }
 
 frame = {
     "@context": {
-        "customer": "https://vocabulary.chase/customer/",
-        "data": "https://data.chase/",
+        "customer": "https://vocabulary.org/customer/",
+        "data": "https://data.org/",
         "sdo": "https://schema.org/"
     },
     "@graph": [
@@ -101,21 +95,27 @@ frame = {
     ]
 }
 
+# Create a new RDF Grpah
 g = Graph()
 
+# Parse N-Triples data into the RDF Graph
 for triple in ntriples_data:
     g.parse(data=triple, format="nt")
 
+# Convert RDF Graph to JSON-LD format
 json_ld = g.serialize(format="json-ld", context=context, indent=4)
+
+from pyld import jsonld
 
 jsonld_obj = json.loads(json_ld)
 compact = jsonld.compact(jsonld_obj, context)
 framed_jsonld = jsonld.frame(compact, frame)
+# print(json.dumps(framed_jsonld, indent=4))
 
 """
     Write JSON-LD output
 """
 
-jsonld_output = '{}\{}'.format(curr_path, jsonld_fnm)
+jsonld_output = r'C:\JPMC\DEV\code_repo\Test\src\local\csvw_on_parquet\output\name_and_address.jsonld'
 with open(jsonld_output, 'w') as output_file:
     output_file.write(json.dumps(framed_jsonld, indent=4))
