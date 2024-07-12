@@ -17,7 +17,7 @@
             "dc:description": "Name of a person",
             "required": true,
             "datatype": "http://www.w3.org/2001/XMLSchema#string",
-            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "aboutUrl": "https://data.org/Person/name/{name}",
             "propertyUrl": "https://schema.org/name"
           },
           {
@@ -76,19 +76,19 @@
           },
           {
             "virtual": true,
-            "aboutUrl": "https://data.chase/Person/name/{name}",
-            "propertyUrl": "https://vocabulary.chase/customer/hasAddress",
+            "aboutUrl": "https://data.org/Person/name/{name}",
+            "propertyUrl": "https://vocabulary.org/customer/hasAddress",
             "valueUrl": "_:bnode_address{_row}"
           },
           {
             "virtual": true,
-            "aboutUrl": "https://data.chase/Person/name/{name}",
-            "propertyUrl": "https://vocabulary.chase/customer/hasContact",
+            "aboutUrl": "https://data.org/Person/name/{name}",
+            "propertyUrl": "https://vocabulary.org/customer/hasContact",
             "valueUrl": "_:bnode_contactInfo{_row}"
           },
           {
             "virtual": true,
-            "aboutUrl": "https://data.chase/Person/name/{name}",
+            "aboutUrl": "https://data.org/Person/name/{name}",
             "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
             "valueUrl": "https://schema.org/Person"
           },
